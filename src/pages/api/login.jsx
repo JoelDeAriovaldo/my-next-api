@@ -1,4 +1,6 @@
-export default function handler(req, res) {
+import cors from "cors";
+
+const handler = (req, res) => {
   const { username, password } = req.body;
 
   // Mock user database
@@ -13,4 +15,6 @@ export default function handler(req, res) {
   } else {
     res.status(401).json({ message: "Invalid credentials" });
   }
-}
+};
+
+export default cors()(handler);
