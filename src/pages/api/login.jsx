@@ -17,4 +17,4 @@ const handler = (req, res) => {
   }
 };
 
-export default cors({ origin: "http://localhost:64401" })(handler);
+export default cors()(handler);
