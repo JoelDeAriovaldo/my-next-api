@@ -2,10 +2,7 @@ export default function handler(req, res) {
   const { username, password } = req.body;
 
   // Mock user database
-  const users = [
-    { username: "user1", password: "pass1" },
-    { username: "user2", password: "pass2" },
-  ];
+  const users = [{ email: "test@email.com", password: "pass1" }];
 
   const user = users.find(
     (user) => user.username === username && user.password === password
