@@ -1,9 +1,4 @@
 import cors from "cors";
-import express from "express";
-
-const app = express();
-
-app.use(cors()); // Include this line to enable CORS
 
 const handler = (req, res) => {
   const { email, password } = req.body;
@@ -22,9 +17,4 @@ const handler = (req, res) => {
   }
 };
 
-app.post("/api/login", handler);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export default cors({ origin: "https://my-next-api-pi.vercel.app" })(handler);
