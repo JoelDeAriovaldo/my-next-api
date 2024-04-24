@@ -1,4 +1,6 @@
-import cors from "cors";
+import cors from "micro-cors";
+
+const corsHandler = cors();
 
 const handler = (req, res) => {
   const { email, password } = req.body;
@@ -17,4 +19,4 @@ const handler = (req, res) => {
   }
 };
 
-export default cors()(handler);
+export default corsHandler(handler);
