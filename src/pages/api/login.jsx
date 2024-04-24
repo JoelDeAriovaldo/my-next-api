@@ -1,13 +1,13 @@
 import cors from "cors";
 
 const handler = (req, res) => {
-  const { email, password } = req.body; // Corrigido para procurar por 'email'
+  const { email, password } = req.body;
 
   // Mock user database
   const users = [{ email: "test@email.com", password: "pass1" }];
 
   const user = users.find(
-    (user) => user.email === email && user.password === password // Corrigido para comparar 'email'
+    (user) => user.email === email && user.password === password
   );
 
   if (user) {
@@ -17,4 +17,4 @@ const handler = (req, res) => {
   }
 };
 
-export default cors()(handler);
+export default cors({ origin: "http://localhost:64401" })(handler);
