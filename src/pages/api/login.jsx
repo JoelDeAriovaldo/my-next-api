@@ -1,6 +1,9 @@
-import cors from "micro-cors";
+import cors from "cors";
+import express from "express";
 
-const corsHandler = cors();
+const app = express();
+
+app.use(cors()); // Include this line to enable CORS
 
 const handler = (req, res) => {
   const { email, password } = req.body;
@@ -19,4 +22,9 @@ const handler = (req, res) => {
   }
 };
 
-export default corsHandler(handler);
+app.post("/api/login", handler);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
