@@ -1,13 +1,13 @@
 import cors from "cors";
 
 const handler = (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body; // Corrigido para procurar por 'email'
 
   // Mock user database
   const users = [{ email: "test@email.com", password: "pass1" }];
 
   const user = users.find(
-    (user) => user.username === username && user.password === password
+    (user) => user.email === email && user.password === password // Corrigido para comparar 'email'
   );
 
   if (user) {
